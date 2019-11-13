@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [techs, setTechs] = useState(['NodeJS', 'Rails', 'Django', 'Laravel']);
+  const [techs, setTechs] = useState([]);
   const [newTech, setNewTech] = useState('');
 
   const handleAdd = () => {
     setTechs([...techs, newTech]);
     setNewTech('');
   };
+
+  // Executes once, when page is loaded
+  useEffect(() => {
+    const storedTechs = localStorage.getItem('techs');
+
+    if (storedTechs) {
+      setTechs(JSON.parse(storedTechs));
+    }
+
+    // Executes when component unmounts
+    return () => {};
+  }, []);
+
+  // Executes only when techs changes
+  useEffect(() => {
+    localStorage.setItem('techs', JSON.stringify(techs));
+  }, [techs]);
 
   return (
     <>

@@ -1,5 +1,7 @@
 # RocketSeatBootCamp - EighthLesson ReactJS ReactHooks
 
+😝 Hooks are too cool🍕 for school 😎
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
